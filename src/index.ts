@@ -1,13 +1,17 @@
-import { extractData } from './data-extractor'
+import { solutions, solved } from './solutions'
 import logger from './logger'
-import { sonarSweepPartOne, sonarSweepPartTwo } from './sonar-sweep/sonar-sweep'
 
 function main() {
   try {
-    const input = extractData(1)
-    const res1 = sonarSweepPartOne(input)
-    const res2 = sonarSweepPartTwo(input)
-    logger.info({ res1, res2 })
+    const date = new Date()
+    const today = date.getDate()
+
+    for (let day = 1; day <= Math.min(today, 25); day++) {
+      if (solved(day)) {
+        const { part1, part2 } = solutions[day]()
+        logger.info({ part1, part2 }, `Solution of day ${day}`)
+      }
+    }
   } catch (error) {
     logger.error(error)
   }
