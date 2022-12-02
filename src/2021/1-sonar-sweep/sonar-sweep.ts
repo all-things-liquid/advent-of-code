@@ -1,4 +1,4 @@
-import { readFileInput } from '../data-extractor'
+import { readFileInput } from '../../data-extractor'
 
 function extractData() {
   const file = readFileInput(1)

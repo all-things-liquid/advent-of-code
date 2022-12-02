@@ -1,4 +1,4 @@
-import { readFileInput } from '../data-extractor'
+import { readFileInput } from '../../data-extractor'
 
 export interface Venture {
   begin: [number, number]
@@ -13,7 +13,7 @@ interface Coordinates {
 function extractData() {
   const file = readFileInput(5)
 
-  return file.split('\n').map((el) => {
+    return file.split('\n').map((el) => {
     const coordinates = el.split(' -> ')
     const begin = coordinates[0].split(',').map((c) => Number(c))
     const end = coordinates[1].split(',').map((c) => Number(c))

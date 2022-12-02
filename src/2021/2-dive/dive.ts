@@ -1,4 +1,4 @@
-import { readFileInput } from '../data-extractor'
+import { readFileInput } from '../../data-extractor'
 
 // export enum Direction {
 //   FORWARD = 'forward',
@@ -10,7 +10,7 @@ export type Direction = 'forward' | 'up' | 'down'
 
 function extractData() {
   const file = readFileInput(2)
-  return file.split('\n').map((command: string) => {
+    return file.split('\n').map((command: string) => {
     const [direction, amount] = command.split(' ')
     return { direction: direction as Direction, amount: parseInt(amount) }
   })

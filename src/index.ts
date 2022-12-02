@@ -1,7 +1,17 @@
-import { solutions, solved } from './solutions'
+import { solutions as solutions2021, solved } from './2021/solutions'
 import logger from './logger'
 
-function main() {
+function getSolutionsOfYearX(year: number){
+  switch(year){
+    case 2021:
+      return solutions2021
+    default:
+      throw new Error(`No solutions for year ${year}!`)
+  }
+}
+
+function main(year: number) {
+  const solutions = getSolutionsOfYearX(year)
   try {
     for (let day = 1; day <= 25; day++) {
       if (solved(day)) {
@@ -13,4 +23,5 @@ function main() {
     logger.error(error)
   }
 }
-main()
+
+main(2021)

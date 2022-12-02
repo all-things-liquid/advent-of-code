@@ -1,4 +1,4 @@
-import { readFileInput } from '../data-extractor'
+import { readFileInput } from '../../data-extractor'
 
 interface Data {
   boardSize: number

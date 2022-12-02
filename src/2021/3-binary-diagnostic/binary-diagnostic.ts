@@ -1,8 +1,8 @@
-import { readFileInput } from '../data-extractor'
+import { readFileInput } from '../../data-extractor'
 
 function extractData() {
   const file = readFileInput(3)
-  return file.split('\n')
+    return file.split('\n')
 }
 
 function str2num(str: string) {

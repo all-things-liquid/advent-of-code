@@ -1,8 +1,8 @@
-import { readFileInput } from '../data-extractor'
+import { readFileInput } from '../../data-extractor'
 
 function extractData() {
   const line = readFileInput(6)
-  return line.split(',').map((e) => Number(e))
+    return line.split(',').map((e) => Number(e))
 }
 
 function simulateGrowth(days: number, init: number[]) {
