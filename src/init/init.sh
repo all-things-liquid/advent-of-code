@@ -35,3 +35,41 @@ else
   echo "Missing files"
   exit 1
 fi
+
+# Print banner, if there is one
+if [ -f "$SCRIPTS_FOLDER/$BANNER" ]; then
+    chmod -xw "$SCRIPTS_FOLDER/$BANNER"
+    cat "$SCRIPTS_FOLDER/$BANNER"
+fi
+date "+%a, %d %b %Y - %X"
+
+declare y d
+selectProblemToSetup y d
+
+echo "Configuring folder for $y/$d..."
+for f in "$y/$d"*; do
+    if [ -e "$f" ]; then
+      echo "Directory and files have already been located at $WORKDIR/$f"
+      exit 1
+    fi
+done
+
+if [ ! -d "$y" ]; then
+    echo "Tackling the first problem of that year, I see..."
+    mkdir "$y"
+fi
+
+echo "Jumping to year $y!"
+cd "$y" || exit 1
+
+echo "Configuring folder and files..."
+html_path="$WORKDIR/$y/$y-$d.html"
+getProblemDescription "$y" "$d" "$html_path"
+
+title=$(getProblemTitle "$d" "$html_path")
+function_name=$(toCamelCase "$title" " ")
+file_name=$(toLowercase "$(toSpinalCase "$title" " ")")
+folder_name="${d}-${file_name}"
+
+echo "Creating folder for problem ${d}: ${title}..."
+initFolderAndFiles "$folder_name" "$file_name" "$html_path"
