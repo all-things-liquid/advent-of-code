@@ -12,17 +12,17 @@ export function sonarSweepPartOne(depths: number[]): number {
 }
 
 export function sonarSweepPartTwo(depths: number[]) {
-  const sumsOfThreee = depths
+  const sumsOfThree = depths
     .slice(0, -2)
     .map(
       (currentDepth, currentIndex) =>
         currentDepth + depths[currentIndex + 1] + depths[currentIndex + 2]
     )
 
-  return sonarSweepPartOne(sumsOfThreee)
+  return sonarSweepPartOne(sumsOfThree)
 }
 
-export function day1() {
+export default function solve() {
   const input = extractData()
   const part1 = sonarSweepPartOne(input)
   const part2 = sonarSweepPartTwo(input)

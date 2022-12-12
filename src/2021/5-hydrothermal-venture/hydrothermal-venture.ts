@@ -13,7 +13,7 @@ interface Coordinates {
 function extractData() {
   const file = readFileInput(5)
 
-    return file.split('\n').map((el) => {
+  return file.split('\n').map((el) => {
     const coordinates = el.split(' -> ')
     const begin = coordinates[0].split(',').map((c) => Number(c))
     const end = coordinates[1].split(',').map((c) => Number(c))
@@ -91,7 +91,7 @@ export function hydrothermalVenturePartTwo(data: Venture[]): number {
   return countOverlaps(coordinates)
 }
 
-export function day5(): { part1: number; part2: number } {
+export default function solve() {
   const data = extractData()
   const part1 = hydrothermalVenturePartOne(data)
   const part2 = hydrothermalVenturePartTwo(data)

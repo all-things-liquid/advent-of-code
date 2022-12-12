@@ -2,7 +2,7 @@ import { readFileInput } from '../../data-extractor'
 
 function extractData() {
   const file = readFileInput(3)
-    return file.split('\n')
+  return file.split('\n')
 }
 
 function str2num(str: string) {
@@ -77,7 +77,7 @@ export function binaryDiagnosticPartTwo(data: string[]): number {
   return bin2dec(o2Rating) * bin2dec(co2Rating)
 }
 
-export function day3() {
+export default function solve() {
   const input = extractData()
   const part1 = binaryDiagnosticPartOne(input)
   const part2 = binaryDiagnosticPartTwo(input)
