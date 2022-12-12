@@ -6,7 +6,8 @@
   "scripts": {
     "start": "ts-node ./src/index.ts | pino-pretty -t -c",
     "test": "mocha --require ts-node/register --extensions ts './src/**/*.test.*'",
-    "init": "./src/init/init.sh ./init"
+    "init": "./src/init/init.sh ./init",
+    "build": "ts-node ./src/build.ts $npm_config_year | pino-pretty -t -c && prettier --write src/$npm_config_year/solutions.ts"
   },
   "author": "Sonia Seddiki",
   "license": "ISC",
