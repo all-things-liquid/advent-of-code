@@ -157,7 +157,7 @@ export function giantSquidPartTwo(data: Data): number {
   return calculateScore(winningGrid, numbers, setLength)
 }
 
-export function day4() {
+export default function solve() {
   const data = extractData()
   const part1 = giantSquidPartOne(data)
   const part2 = giantSquidPartTwo(data)
