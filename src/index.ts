@@ -1,27 +1,22 @@
-import { solutions as solutions2021, solved } from './2021/solutions'
 import logger from './logger'
+import { getSolutions, getSolutionsFolder, parseDay, parseYear } from './global'
 
-function getSolutionsOfYearX(year: number){
-  switch(year){
-    case 2021:
-      return solutions2021
-    default:
-      throw new Error(`No solutions for year ${year}!`)
-  }
-}
-
-function main(year: number) {
-  const solutions = getSolutionsOfYearX(year)
+async function main(year: string, day: string) {
   try {
-    for (let day = 1; day <= 25; day++) {
-      if (solved(day)) {
-        const { part1, part2 } = solutions[day]()
-        logger.info({ part1, part2 }, `Solution of day ${day}`)
-      }
+    const yearFolder = getSolutionsFolder(year)
+    const solutions = await getSolutions(yearFolder)
+
+    if (solutions[day]) {
+      const { part1, part2 } = solutions[day]()
+      logger.info({ part1, part2 }, `Solution for day ${day}`)
+    } else {
+      logger.info(`No solution for day ${day}`)
     }
-  } catch (error) {
-    logger.error(error)
+  } catch (e) {
+    logger.error(e)
   }
 }
 
-main(2021)
+const year = parseYear(process.env.npm_config_aoc_y)
+const day = parseDay(process.env.npm_config_aoc_d)
+main(year, day).then(() => logger.info('Done'))
