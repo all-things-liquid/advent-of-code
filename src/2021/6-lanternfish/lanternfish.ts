@@ -1,8 +1,5 @@
-import { readFileInput } from '../../data-extractor'
-
-function extractData() {
-  const line = readFileInput(6)
-  return line.split(',').map((e) => Number(e))
+function extractData(file: string) {
+  return file.split(',').map((e) => Number(e))
 }
 
 function simulateGrowth(days: number, init: number[]) {
@@ -52,8 +49,8 @@ export function lanternfishPartTwo(data: number[]) {
   return calculatePopulation(256, pop)
 }
 
-export default function solve() {
-  const data = extractData()
+export default function solve(str: string) {
+  const data = extractData(str)
   const part1 = lanternfishPartOne(data)
   const part2 = lanternfishPartTwo(data)
   return { part1, part2 }

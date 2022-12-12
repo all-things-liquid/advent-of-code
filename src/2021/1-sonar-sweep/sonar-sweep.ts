@@ -1,7 +1,4 @@
-import { readFileInput } from '../../data-extractor'
-
-function extractData() {
-  const file = readFileInput(1)
+function extractData(file: string) {
   return file.split('\n').map((el: string) => parseInt(el))
 }
 
@@ -22,8 +19,8 @@ export function sonarSweepPartTwo(depths: number[]) {
   return sonarSweepPartOne(sumsOfThree)
 }
 
-export default function solve() {
-  const input = extractData()
+export default function solve(str: string) {
+  const input = extractData(str)
   const part1 = sonarSweepPartOne(input)
   const part2 = sonarSweepPartTwo(input)
 

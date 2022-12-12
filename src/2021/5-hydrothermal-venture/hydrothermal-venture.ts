@@ -1,5 +1,3 @@
-import { readFileInput } from '../../data-extractor'
-
 export interface Venture {
   begin: [number, number]
   end: [number, number]
@@ -10,9 +8,7 @@ interface Coordinates {
   y: number
 }
 
-function extractData() {
-  const file = readFileInput(5)
-
+function extractData(file: string) {
   return file.split('\n').map((el) => {
     const coordinates = el.split(' -> ')
     const begin = coordinates[0].split(',').map((c) => Number(c))
@@ -91,8 +87,8 @@ export function hydrothermalVenturePartTwo(data: Venture[]): number {
   return countOverlaps(coordinates)
 }
 
-export default function solve() {
-  const data = extractData()
+export default function solve(str: string) {
+  const data = extractData(str)
   const part1 = hydrothermalVenturePartOne(data)
   const part2 = hydrothermalVenturePartTwo(data)
   return { part1, part2 }
