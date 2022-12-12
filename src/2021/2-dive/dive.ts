@@ -1,9 +1,6 @@
-import { readFileInput } from '../../data-extractor'
-
 export type Direction = 'forward' | 'up' | 'down'
 
-function extractData() {
-  const file = readFileInput(2)
+function extractData(file: string) {
   return file.split('\n').map((command: string) => {
     const [direction, amount] = command.split(' ')
     return { direction: direction as Direction, amount: parseInt(amount) }
@@ -51,8 +48,8 @@ export function divePartTwo(
   return horizontalPos * depth
 }
 
-export default function solve() {
-  const commands = extractData()
+export default function solve(str: string) {
+  const commands = extractData(str)
   const part1 = divePartOne(commands)
   const part2 = divePartTwo(commands)
 

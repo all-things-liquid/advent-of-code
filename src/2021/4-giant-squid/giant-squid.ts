@@ -1,5 +1,3 @@
-import { readFileInput } from '../../data-extractor'
-
 interface Data {
   boardSize: number
   numbers: string[]
@@ -11,8 +9,8 @@ interface Grid {
   columns: string[][]
 }
 
-function extractData() {
-  const lines = readFileInput(4).split('\n\n')
+function extractData(file: string) {
+  const lines = file.split('\n\n')
 
   const numbers = (lines.shift() as string).split(',')
   const boards = lines.map((board) =>
@@ -157,8 +155,8 @@ export function giantSquidPartTwo(data: Data): number {
   return calculateScore(winningGrid, numbers, setLength)
 }
 
-export default function solve() {
-  const data = extractData()
+export default function solve(str: string) {
+  const data = extractData(str)
   const part1 = giantSquidPartOne(data)
   const part2 = giantSquidPartTwo(data)
   return { part1, part2 }
