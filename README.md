@@ -1,10 +1,15 @@
 # Advent of code
 
+## How to build
+```bash
+npm run build --year=YYYY
+```
+
 ## How to run
 
 ```bash
 npm i
-npm run start
+npm run start --year=YYYY --day=D
 ```
 
 ## Synopsis
