@@ -1,0 +1,21 @@
+export type Data = unknown // TBD, problem-specific
+
+function extractData(file: string) {
+  return file.split('\n')
+}
+
+export function ${function_name}PartOne(data: Data[])  {
+    throw new Error(`Replace with solution to part 1; Input extract: ${data[0]}`)
+}
+
+export function ${function_name}PartTwo(data: Data[]) {
+    throw new Error(`Replace with solution to part 2; Input extract: ${data[0]}`)
+}
+
+export default function solve(input: string) {
+  const data = extractData(input)
+  const part1 = ${function_name}PartOne(data)
+  const part2 = ${function_name}PartTwo(data)
+
+  return { part1, part2 }
+}

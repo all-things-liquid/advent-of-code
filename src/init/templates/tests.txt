@@ -1,0 +1,32 @@
+import { expect } from 'chai'
+import {
+  Data,
+  ${function_name}PartOne,
+  ${function_name}PartTwo
+} from './${function_file}'
+
+describe('${problem_title}', () => {
+  const data: Data[] = []   // Replace with test input
+
+  it('Should...', () => {
+    // Given
+    const expected = undefined // Replace with expected result
+
+    // When
+    const res = ${function_name}PartOne(data)
+
+    // Then
+    expect(res).to.equal(expected)
+  })
+
+  it('Should...', () => {
+    // Given
+    const expected = undefined // Replace with expected result
+
+    // When
+    const res = ${function_name}PartTwo(data)
+
+    // Then
+    expect(res).to.equal(expected)
+  })
+})
