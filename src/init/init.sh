@@ -73,3 +73,4 @@ folder_name="${d}-${file_name}"
 
 echo "Creating folder for problem ${d}: ${title}..."
 initFolderAndFiles "$folder_name" "$file_name" "$html_path"
+fillInFiles "$file_name" "$function_name" "$title"

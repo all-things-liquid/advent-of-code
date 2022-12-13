@@ -61,3 +61,13 @@ initFolderAndFiles(){
   echo "The following files were created in $1: "
   ls -1
 }
+
+fillInFiles(){
+  if [ -z "$1" ]  || [ -z "$2" ] || [ -z "$3" ] ; then
+      echo "Arguments: <file_name> <function_name> <title>"
+      exit 1
+  fi
+
+  sed -e "s/\${function_name}/$2/g" < "../../init/templates/functions.txt" >> "$1.ts"
+  sed -e "s/\${function_name}/$2/g" -e "s/\${function_file}/$1/g" -e "s/\${problem_title}/$3/g" < "../../init/templates/tests.txt" >> "$1.test.ts"
+}
