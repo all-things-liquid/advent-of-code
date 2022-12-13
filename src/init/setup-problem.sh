@@ -9,10 +9,10 @@ isAdventTime() {
 }
 
 isDailyProblemAvailable() {
-  if [[ ! ($CURRENT_DAY < $UPCOMING_RELEASE_DAY ) ]]; then
-    true
-  else
+  if [[ ($CURRENT_DAY > $UPCOMING_RELEASE_DAY) ]]; then
     false
+  else
+    true
   fi
 }
 
@@ -27,7 +27,7 @@ selectProblemToSetup() {
           daily_setup=$(echo "${daily_setup:-"y"}" | tr '[:upper:]' '[:lower:]')
        else
           echo "...Today's problem is not available yet though."
-      fi
+       fi
   else
       echo "Hey! Advent time is over. No problem available today"
   fi
